@@ -8,8 +8,13 @@ html, body, #root {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center
+}
+
+.words-form {
+  min-height: 200px;
 }
 
 .words-form--word-input {
@@ -41,4 +46,29 @@ html, body, #root {
 
 .hidden {
   opacity: 0;
+}
+
+.statistic {
+  width: 100px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.statistic--icon {
+  font-size: 1.3em;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.statistic--cycles {
+  font-size: 1.5em;
+  color: #999;
+  opacity: 0;
+  list-style: none;
+  padding: 0;
+  transition-duration: 1s;
+}
+
+.statistic--icon:hover + .statistic--cycles { 
+  opacity: 1;
 }

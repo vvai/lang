@@ -1,21 +1,25 @@
 import { ANSWER, REFRESH_QUESTION } from '../constants/ActionTypes'
 import { prepositions } from '../data/prepositions'
 
-const initialState = { 'currentIndex': 0, questions: shuffleArray(prepositions) }
+const initialState = { 'currentIndex': 0, questions: shuffleArray(prepositions), statistic: [{ answersCount: 0, trueCount: 0 }] }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case ANSWER:
       if (state.currentIndex < state.questions.length - 1) {
-        return {
-          currentIndex: state.currentIndex + 1,
-          questions: state.questions
-        }
+        const newStatistic = updateStatistic(action.isTrue, state.statistic)
+        return Object.assign({}, state,
+          {
+            currentIndex: state.currentIndex + 1,
+            statistic: newStatistic
+          })
       } else {
-        return {
+        const newStatistic = updateStatistic(action.isTrue, state.statistic)
+        newStatistic.push({ answersCount: 0, trueCount: 0 })
+        return Object.assign({}, state, {
           currentIndex: 0,
           questions: shuffleArray(state.questions)
-        }
+        })
       }
     case REFRESH_QUESTION:
       return state
@@ -24,12 +28,20 @@ export default (state = initialState, action) => {
   }
 }
 
+function updateStatistic(answer, statistic) {
+  let lastRow = statistic.pop()
+  lastRow.answersCount += 1
+  lastRow.trueCount = answer ? lastRow.trueCount + 1 : lastRow.trueCount
+  statistic.push(lastRow)
+  return statistic
+}
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        var j = Math.floor(Math.random() * (i + 1))
+        var temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
     }
-    return array;
+    return array
 }

@@ -18,14 +18,16 @@ class QuestionForm extends Component {
         const userAnswer =  event.target.value
         if (answer === userAnswer) {
           this.setState({currentAnswer: 'correct!', isCorrect: true})
+          this.props.actions.answer(true)
         } else {
           this.setState({currentAnswer: question + ' ' + answer, isCorrect: false})
+          this.props.actions.answer(false)
         }
         this.refs.input.value = '';
         this.refs.result.className = this.refs.result.className.replace(/\bhidden\b/,'');
         setTimeout(()=> {
           this.refs.result.classList.add('hidden') }, 1000)
-        this.props.actions.answer(userAnswer)
+
     }
   }
 

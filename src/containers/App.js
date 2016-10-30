@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import '../App.css'
 import QuestionForm from '../components/QuestionForm'
+import Statistic from '../components/Statistic'
 import * as QuestionActions from '../actions'
 
 class App extends Component {
@@ -12,11 +13,12 @@ class App extends Component {
   }
 
   render() {
-    const { currentIndex, questions } = this.props.value.questions
+    const { currentIndex, questions, statistic } = this.props.value.questions
     const question = questions[currentIndex]
     return (
       <div className="App">
         <QuestionForm actions={this.props.actions} question={question} />
+        <Statistic cycles={statistic} />
       </div>
     )
   }
