@@ -16,11 +16,11 @@ class QuestionForm extends Component {
     if (event.key === 'Enter') {
         const { question, answer } = this.props.question
         const userAnswer =  event.target.value
-        if (answer === userAnswer) {
+        if (answer.toLowerCase().trim() === userAnswer.toLowerCase().trim()) {
           this.setState({currentAnswer: 'correct!', isCorrect: true})
           this.props.actions.answer(true)
         } else {
-          this.setState({currentAnswer: question + ' ' + answer, isCorrect: false})
+          this.setState({currentAnswer: answer, isCorrect: false})
           this.props.actions.answer(false)
         }
         this.refs.input.value = '';

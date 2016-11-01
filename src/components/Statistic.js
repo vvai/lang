@@ -12,7 +12,7 @@ class Statistic extends Component {
         <ul className="statistic--cycles">
         {
             this.props.cycles.map(function(cycle, index) {
-                return <li key={index}>{cycle.answersCount}/{cycle.trueCount}</li>
+                return <li key={index}>{cycle.trueCount}/{cycle.answersCount}</li>
             })
         }
         </ul>
