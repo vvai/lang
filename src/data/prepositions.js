@@ -39,13 +39,13 @@ export const prepositions = [
   { 'answer': 'enter', 'question': 'входить в, поступать в' },
   { 'answer': 'fight', 'question': 'сражаться с (против)' },
   { 'answer': 'follow', 'question': 'следовать за' },
+]
+/**
   { 'answer': 'join', 'question': 'вступать в, присоединяться к' },
   { 'answer': 'leave', 'question': 'уехать из' },
   { 'answer': 'need', 'question': 'нуждаться в' },
   { 'answer': 'play', 'question': 'играть в (на)' },
   { 'answer': 'affect', 'question': 'воздействовать на' },
-]
-/**
   { 'answer': 'look after', 'question': 'присматривать, заботиться' },
   { 'answer': 'look at', 'question': 'смотреть на' },
   { 'answer': 'look for', 'question': 'искать' },
