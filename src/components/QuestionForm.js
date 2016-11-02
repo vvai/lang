@@ -14,7 +14,7 @@ class QuestionForm extends Component {
 
   handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-        const { question, answer } = this.props.question
+        const { answer } = this.props.question
         const userAnswer =  event.target.value
         if (answer.toLowerCase().trim() === userAnswer.toLowerCase().trim()) {
           this.setState({currentAnswer: 'correct!', isCorrect: true})
