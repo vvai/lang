@@ -2,9 +2,34 @@ import React from 'react'
 import { Route } from 'react-router'
 import App from './containers/App'
 
-export default <Route path='/' component={App}>
+function errorLoading(err) {
+  console.error('Dynamic page loading failed', err);
+}
 
-</Route>
+function loadRoute(cb) {
+  return (module) => cb(null, module.default);
+}
+
+export default {
+  component: App,
+  childRoutes: [
+    {
+      path: '/',
+
+    }
+  ]
+}
+
+
+
+/* <Route path='/' component={App}></Route>
+
+getComponent(location, cb) {
+    System.import('./components/TestComponent')
+      .then(loadRoute(cb))
+      .catch(errorLoading);
+  }
+*/
 
 
 /*<Route path="/" component={App}>

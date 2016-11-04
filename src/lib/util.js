@@ -1,7 +1,9 @@
-export function loadStyles (url) {
+/* @flow */
+
+export function loadStyles (url: string) {
   return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.returnType = 'text';
+    var xhr: XMLHttpRequest = new XMLHttpRequest();
+    xhr.responseType = 'text';
     xhr.onload = function () {
       var link = document.createElement('link');
       link.rel = 'stylesheet';
