@@ -14,7 +14,7 @@ export default {
   component: App,
   childRoutes: [
     {
-      path: '/',
+      path: '/lang71',
 
     }
   ]
