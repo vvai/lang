@@ -1,8 +1,9 @@
+/* @flow */
 import { createStore } from 'redux'
 
 import reducers from './reducers'
 
-const configureStore = preloadedState => createStore(
+const configureStore = (preloadedState: Object = {}) => createStore(
   reducers,
   preloadedState,
 )

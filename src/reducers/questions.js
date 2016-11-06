@@ -1,9 +1,10 @@
+/* @flow */
 import { ANSWER, REFRESH_QUESTION } from '../constants/ActionTypes'
 import { prepositions } from '../data/prepositions'
 
 const initialState = { 'currentIndex': 0, questions: shuffleArray(prepositions), statistic: [{ answersCount: 0, trueCount: 0 }] }
 
-export default (state = initialState, action) => {
+export default (state: Object = initialState, action: Object) => {
   switch (action.type) {
     case ANSWER:
       if (state.currentIndex < state.questions.length - 1) {

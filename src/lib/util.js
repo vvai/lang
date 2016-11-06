@@ -1,11 +1,11 @@
 /* @flow */
 
-export function loadStyles (url: string) {
+export function loadStyles (url: string): Promise<> {
   return new Promise(function (resolve, reject) {
     var xhr: XMLHttpRequest = new XMLHttpRequest();
     xhr.responseType = 'text';
     xhr.onload = function () {
-      var link = document.createElement('link');
+      let link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = url;
       document.head.appendChild(link);

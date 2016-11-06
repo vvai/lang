@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react'
 
 class QuestionForm extends Component {
@@ -5,17 +6,22 @@ class QuestionForm extends Component {
     question: PropTypes.object.isRequired
   }
 
-  constructor(props) {
+  state: {
+    currentAnswer: string;
+    isCorrect: boolean;
+  };
+
+  constructor(props: Object) {
     super(props)
     this.state = {currentAnswer: ' ', isCorrect: true }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
-        const { answer } = this.props.question
-        const userAnswer =  event.target.value
+        const answer: string = this.props.question.answer
+        const userAnswer: string =  this.refs.input.value
         if (answer.toLowerCase().trim() === userAnswer.toLowerCase().trim()) {
           this.setState({currentAnswer: 'correct!', isCorrect: true})
           this.props.actions.answer(true)
@@ -32,7 +38,7 @@ class QuestionForm extends Component {
   }
 
   render() {
-    const question = this.props.question.question
+    const question: string = this.props.question.question
     return (
       <div className="words-form">
         <div className="words-form--question">{question}</div>

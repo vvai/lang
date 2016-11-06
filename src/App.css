@@ -25,6 +25,7 @@ input {
 
 .words-form--word-input {
   font-size: 2em;
+  outline: none;
 }
 
 .words-form--question {

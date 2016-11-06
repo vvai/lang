@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -24,11 +25,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps: Function = (state) => ({
   value: state
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps: Function = (dispatch) => ({
     actions: bindActionCreators(QuestionActions, dispatch)
 })
 

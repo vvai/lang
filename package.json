@@ -2,10 +2,11 @@
   "name": "lang",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vvai.github.io/lang71",
+  "homepage": "https://vvai.github.io/lang",
   "devDependencies": {
-    "react-scripts": "0.7.0",
-    "redux-devtools": "^3.3.1"
+    "flow": "^0.2.3",
+    "flow-bin": "^0.34.0",
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
     "react": "^15.3.2",
