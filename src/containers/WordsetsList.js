@@ -5,11 +5,15 @@ import { Link } from 'react-router'
 class WordsetsList extends Component {
 
   render() {
+    const res = [ {label: "prepositions", link: "wordset/prepositions"} ]
+    const links = res.map((item) => (
+      <li><Link to={item.link}>{item.label}</Link></li>
+    ))
     return (
       <div>
         <h1>Wordsets:</h1>
         <ul>
-          <li><Link to="wordset/prepositions">prepositions</Link></li>
+          {links}
         </ul>
       </div>
     )
