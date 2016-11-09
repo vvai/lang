@@ -2,10 +2,11 @@
   "name": "lang",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vvai.github.io/lang",
+  "homepage": "https://lang71.com",
   "devDependencies": {
     "flow": "^0.2.3",
     "flow-bin": "^0.34.0",
+    "gh-pages": "^0.11.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
