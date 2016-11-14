@@ -3,6 +3,8 @@ import App from './containers/App'
 import Home from './containers/Home'
 import WordsetsList from './containers/WordsetsList'
 import Wordset from './containers/Wordset'
+import { fetchWordset } from './actions'
+import { bindActionCreators } from 'redux'
 
 /*
 function errorLoading(err) {
@@ -13,6 +15,12 @@ function loadRoute(cb) {
   return (module) => cb(null, module.default);
 }
 */
+
+function newWordsetRoute(nextState, replace) {
+  const { name } = nextState.params
+  console.log('newWordsetRoute ', name)
+  fetchWordset({ link: `{name}.json`, label: name })
+}
 
 export default {
   path: '/',
@@ -25,7 +33,8 @@ export default {
     },
     {
       path: 'wordset/:name',
-      component: Wordset
+      component: Wordset,
+      onEnter: newWordsetRoute
     }
   ]
 }

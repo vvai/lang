@@ -2,9 +2,6 @@
 import React, { Component, PropTypes } from 'react'
 
 class Statistic extends Component {
-  static propTypes = {
-    cycles: PropTypes.array.isRequired
-  }
 
   render() {
     return (
@@ -20,6 +17,14 @@ class Statistic extends Component {
       </div>
     );
   }
+}
+
+Statistic.propTypes = {
+  cycles: PropTypes.array.isRequired
+}
+
+Statistic.defaultProps = {
+  cycles: []
 }
 
 export default Statistic

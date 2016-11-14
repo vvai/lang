@@ -6,7 +6,7 @@ import routes from '../routes'
 
 
 
- const Root = ({ store, history}: {store: Object, history: Object}) => (
+ const Root = ({store, history}: {store: Object, history: Object}) => (
   <Provider store={store}>
     <Router history={history} routes={routes} />
   </Provider>

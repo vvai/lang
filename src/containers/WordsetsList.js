@@ -7,7 +7,7 @@ class WordsetsList extends Component {
   render() {
     const res = [ {label: "prepositions", link: "wordset/prepositions"} ]
     const links = res.map((item) => (
-      <li><Link to={item.link}>{item.label}</Link></li>
+      <li key={item.label}><Link to={item.link}>{item.label}</Link></li>
     ))
     return (
       <div>

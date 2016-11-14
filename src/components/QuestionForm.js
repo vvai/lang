@@ -1,4 +1,4 @@
-/* @flow */
+/* @flo */
 import React, { Component, PropTypes } from 'react'
 
 class QuestionForm extends Component {
@@ -15,14 +15,19 @@ class QuestionForm extends Component {
     super(props)
     this.state = {currentAnswer: ' ', isCorrect: true }
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     // this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange = (event: KeybordEvent) => {
+    this.setState({userInput: event.target.value});
   }
 
   handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
         const answer: string = this.props.question.answer
         const userAnswer: string =  this.refs.input.value
-        if (answer.toLowerCase().trim() === userAnswer.toLowerCase().trim()) {
+        if (answer.toLowerCase().trim() === this.state.userInput.toLowerCase().trim()) {
           this.setState({currentAnswer: 'correct!', isCorrect: true})
           this.props.actions.answer(true)
         } else {
@@ -42,7 +47,7 @@ class QuestionForm extends Component {
     return (
       <div className="words-form">
         <div className="words-form--question">{question}</div>
-        <input ref="input" className="words-form--word-input" type="text" onKeyPress={this.handleKeyPress} />
+        <input ref="input" className="words-form--word-input" type="text" value={this.state.userInput} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
         <div ref="result" className={"words-form--answer " + (this.state.isCorrect ? "words-form--answer__correct" : "words-form--answer__wrong")}>{this.state.currentAnswer}</div>
       </div>
     )
