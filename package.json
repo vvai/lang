@@ -1,5 +1,5 @@
 {
-  "name": "lang",
+  "name": "lang71",
   "version": "0.1.0",
   "description": "Browser-local tool for learning words",
   "private": true,
@@ -19,10 +19,16 @@
     "flow": "^0.2.3",
     "flow-bin": "^0.34.0",
     "gh-pages": "^0.11.0",
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.7.0",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.1.1",
+    "redux-logger": "^2.7.4"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.0",
+    "normalizr": "^2.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
